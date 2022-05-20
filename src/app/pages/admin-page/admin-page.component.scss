@@ -1,0 +1,15 @@
+#drop-content{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color:rgb(197, 81, 81) ;
+
+}
+#drop-container:hover #drop-content{
+    display: block;
+}
+
+#tab-headers{
+    position: sticky;
+    top:0
+}

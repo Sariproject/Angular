@@ -1,0 +1,38 @@
+:host{    
+   text-align: center;
+   margin-top: 15px;
+   width: 350px;
+        >form{
+            mat-form-field{
+            margin-left: 0.5rem;
+            text-align: right;
+            }    
+        }
+            
+        & .btn-row{
+            display: flex;
+            justify-content: flex-end;
+           
+            & .buttonUpdata{
+                color: white!important;
+                width: 25%;
+                background-color: #616161;
+                border-radius: 0px;
+                // position: relative;
+                color: #FFFFFF;
+              
+                text-align: center;
+                -webkit-transition-duration: 0.4s; 
+                transition-duration: 0.4s;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+               
+            &:hover {
+               
+                box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+                   
+             } 
+          
+        }}
+}

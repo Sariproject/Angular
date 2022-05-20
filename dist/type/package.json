@@ -1,0 +1,21 @@
+{
+  "name": "type",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "main": "bundles/type.umd.js",
+  "module": "fesm5/type.js",
+  "es2015": "fesm2015/type.js",
+  "esm5": "esm5/type.js",
+  "esm2015": "esm2015/type.js",
+  "fesm5": "fesm5/type.js",
+  "fesm2015": "fesm2015/type.js",
+  "typings": "type.d.ts",
+  "metadata": "type.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

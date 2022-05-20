@@ -1,0 +1,37 @@
+:host{
+    text-align: center;
+    display: grid;
+    grid-template-rows:repeat(4 auto) ;
+    grid-template-columns: 1fr 4fr 1fr ;
+}
+input.btn {
+    grid-column: 1;
+    border: solid 2px white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 30px;
+    margin: 100px 40px;
+    font-size: 20px;
+    // width: 100px;
+    // height: 80px;
+}
+input.btn:hover{
+    background-color: #248493;
+    color:white
+}
+
+.said{
+    grid-row: 3;
+    background-color: #248493;
+    display: grid;
+    grid-template: repeat(3 auto);
+}
+#right{
+    grid-column: 1;
+}
+
+.said div{
+    display: flex;   
+    justify-content: center; 
+    align-items: center;
+}

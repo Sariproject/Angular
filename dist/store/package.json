@@ -1,0 +1,21 @@
+{
+  "name": "store",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  },
+  "main": "bundles/store.umd.js",
+  "module": "fesm5/store.js",
+  "es2015": "fesm2015/store.js",
+  "esm5": "esm5/store.js",
+  "esm2015": "esm2015/store.js",
+  "fesm5": "fesm5/store.js",
+  "fesm2015": "fesm2015/store.js",
+  "typings": "store.d.ts",
+  "metadata": "store.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

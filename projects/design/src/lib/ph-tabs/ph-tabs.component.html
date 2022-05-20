@@ -1,0 +1,31 @@
+<section class="top-right">
+  <ng-content select=[top-right]></ng-content>
+
+</section>
+<ng-template #emptyTmpl>
+  <section class="empty-message ph-tabs-panel">
+    <ng-content select="[empty-message]"></ng-content>
+  </section>
+</ng-template>
+
+<div *ngIf="tabsList && tabsList.length;else emptyTmpl"
+     [class.tabContent]="tabContent && !tabsContainer"
+     [class.tabsContainer]="tabsContainer">
+  <p-tabView [class]="classes"
+             [class.limited]="limited"
+             [class.ph-hide-panels]="!hasPanels"
+             [class.mainTabs]="mainTabs && !tabsContainer"
+             (onchange)="onChangeTab($event)">
+    <p-tabPanel *ngFor="let tab of tabsList"
+                [selected]="tab.selected"
+                [class.ph-tab-selected]="tab.selected"
+                [header]="tab.header"
+                [disabled]="tab.disabled">
+      <ng-container *ngIf="tab.tmpl">
+        <ng-container *ngTemplateOutlet="tab.tmpl; context:tab.context">
+        </ng-container>
+      </ng-container>
+
+    </p-tabPanel>
+  </p-tabView>
+</div>

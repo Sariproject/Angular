@@ -1,0 +1,37 @@
+<div>
+  <table class="table">
+    <thead>
+      <tr style="background-color:#248493;color:#ffffff">
+        <th>כיתה</th>
+        <th>שם תלמידה</th>
+        <th>
+          <select   *ngIf="flag!=true"   [(ngModel)]="selectedOption"   (change)="onChangeTalent()" >
+            <option  [innerHTML]="'בחר מספר'" [value]="'בחר כשרון'"></option>
+            <optgroup label="בחר כשרון"  >
+            <option *ngFor="let talent of talents;let index=i" [innerHtml]="talent.nameTalent" [value]="talent.talentId"></option>
+            <option [value]="'אחר'">אחר</option>
+            </optgroup>
+          </select>
+          <div *ngIf="flag==true">
+            <input type="text" [(ngModel)]="text">
+            <button type="sumbit" value="+" class="choose" (click)="addTalent()">+</button>
+          </div>
+        </th>
+        <th>המלצה</th>
+        <th>פרוט</th>
+      </tr>
+      <tr *ngFor="let student of students;let i = index" style="background-color:#f2f2f2">
+        <th [innerHtml]="student.Class"></th>
+        <th [innerHtml]="student.name"></th>
+        <th><input type="checkbox" [(ngModel)]="student.hasTalent"
+            (change)="onChange(student.name,student.hasTalent)" /></th>
+        <th><input type="number" [(ngModel)]="student.countAdvice"
+            (change)="onChange(student.name,student.countAdvice)" /></th>
+        <th><input type="text" [(ngModel)]="student.moreDetails"
+            (change)="onChange(student.name,student.moreDetails)" /></th>
+        <th *ngIf="some(student.name)" class="save"><input type="button" value="שמור" (click)="saveOne(i)" /></th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<input type="button" value="שמור הכל" class="saveAll" (click)="saveAll()" />

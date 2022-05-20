@@ -1,0 +1,11 @@
+<p>
+    <span>קובץ</span>
+    <input  type="file" s (change)="SendFiles($event.target.files)"/>
+</p>
+
+
+<div id="loader"></div>
+<div style="display:none;" id="myDiv" class="animate-bottom">
+    <h2>Tada!</h2>
+    <p>עודכנו {{updateSql}}</p>
+</div>

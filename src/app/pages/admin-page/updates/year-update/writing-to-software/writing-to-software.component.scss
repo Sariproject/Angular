@@ -1,0 +1,36 @@
+:host{
+    direction: rtl;
+    text-align: center;
+    align-self: center;
+    align-content: space-between;
+    .table{
+        width: 100%;
+    }
+    & .btn-row{
+        display: flex;
+        justify-content: flex-end;
+       
+        & .buttonUpdata{
+            
+            color: white!important;
+            width: 15%;
+            background-color: #616161;
+            border-radius: 0px;
+            // position: relative;
+            color: #FFFFFF;
+          
+            text-align: center;
+            -webkit-transition-duration: 0.4s; 
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+           
+        &:hover {
+           
+            box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+               
+         } 
+      
+    }}
+}

@@ -1,0 +1,226 @@
+<lib-ph-dialog [header]="header" [(visible)]="nav.showNewCustomerDialog" [width]="modalWidth" [height]="modalHeight"
+  (onShow)="onShow()" (onHide)="onHide()" [resizable]="false">
+  <app-search (clickSave)="Search($event)"></app-search>
+</lib-ph-dialog>
+<lib-ph-dialog [header]="header" [(visible)]="nav.showStudentDialog" [width]="modalWidth" [height]="modalHeight"
+  (onShow)="onShow()" (onHide)="onHide()" [resizable]="false">
+  <app-student #Student (clickSave)="close()"></app-student>
+</lib-ph-dialog>
+
+
+<div id="print">
+  <div id="top">
+    <button mat-button color="primary" value="חפש" (click)="openNewSearch()">חיפוש חדש</button>
+    <input class="myInput" [disabled]="'true'" [placeholder]="SearcString">
+
+
+  </div>
+  <ng-container *ngFor="let snton of ArrayAll ;let s=index">
+    <ng-container *ngFor="let resultS of snton;let c=index">
+      <p>{{resultS |countFilterArray :SearchDetails}}</p>
+    <ng-container >
+      <h3 [innerHtml]="resultS[0].Class"></h3>
+      <table style="width:100%;text-align:center;color:#248493;direction:rtl;" id='c{{s}}'>
+        <thead>
+          <tr style="background-color:#248493;color:#ffffff">
+
+            <th>כיתה</th>
+            <th>שם תלמידה</th>
+            <th>טלפון</th>
+            <th>כשרונות</th>
+            <th>פעילות</th>
+            <th>תפקיד</th>
+            <th>קהל יעד</th>
+            <th>גודל</th>
+            <th>שנה</th>
+            <th>הערות</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+          
+            <ng-container *ngFor="let result of resultS | filterArray : SearchDetails ;let t=index"
+              style="background-color:#f2f2f2">
+              <!-- <tr *ngIf="getLength(result.Class)" [ngStyle]="{'background-color':'#248493','color':'#f2f2f2'}">
+    <td colspan="10" [innerHtml]="result.Class" class="grade-header"></td>
+    </tr> -->
+
+              <tr *ngFor="let i of result.ArrayTasks;let f=index" [ngStyle]="{'background-color':getColor(t)}">
+                <ng-container *ngIf="f==0">
+                  <td [innerHtml]="result.Class" [attr.rowspan]="result.ArrayTasks.length"></td>
+                  <td [innerHtml]="result.FirstName+' '+result.LastName" [attr.rowspan]="result.ArrayTasks.length"
+                    (click)="view(result.StudentId)"></td>
+                  <td [innerHtml]="result.Phone" [attr.rowspan]="result.ArrayTasks.length"></td>
+                  <td [attr.rowspan]="result.ArrayTasks.length">
+                    <p *ngFor="let Talent of result.ArrayTalent">
+                      <span [innerHtml]="Talent.nameTalent+'  '+Talent.countAdvice"></span>
+                    </p>
+                  </td>
+                </ng-container>
+                <td [innerHtml]="i.nameActivity+'  '"></td>
+                <td [innerHtml]="i.nameTalent"></td>
+                <td [innerHtml]="i.taskType+'  '"></td>
+                <td [innerHtml]="i.frame"></td>
+                <td [innerHtml]="i.year"></td>
+                <td [innerHtml]="i.moreDetails">
+                </td>
+
+              </tr>
+              <tr *ngIf="result.ArrayTasks.length==0" [ngStyle]="{'background-color':getColor(t)}">
+                <td [innerHtml]="result.Class"></td>
+                <td [innerHtml]="result.FirstName+' '+result.LastName" (click)="view(result.StudentId)"></td>
+                <td [innerHtml]="result.Phone"></td>
+                <td>
+                  <p *ngFor="let Talent of result.ArrayTalent">
+                    <span [innerHtml]="Talent.nameTalent+'  '+Talent.countAdvice"></span>
+                  </p>
+                </td>
+                <td [innerHtml]="''"></td>
+                <td [innerHtml]="''"></td>
+                <td [innerHtml]="''"></td>
+                <td [innerHtml]="''"></td>
+                <td [innerHtml]="''"></td>
+                <td [innerHtml]="''"></td>
+
+              </tr>
+            </ng-container>
+          
+
+        </tbody>
+      </table>
+    </ng-container>
+    </ng-container>
+
+  </ng-container>
+  <!-- <table style="width:100%;text-align:center;color:#248493;direction:rtl;" class="p">
+    <thead style="position: sticky; top: 70px;">
+      <tr style="background-color:#248493;color:#ffffff">
+        <th>כיתה</th>
+        <th>שם תלמידה</th>
+        <th>טלפון</th>
+        <th>כשרונות</th>
+        <th>פעילות</th>
+        <th>תפקיד</th>
+        <th>קהל יעד</th>
+        <th>גודל</th>
+        <th>שנה</th>
+        <th>הערות</th>
+
+      </tr>
+     </thead>
+    <tbody>
+
+  <ng-container *ngFor="let result of r[0]| filterArray : SearchDetails ;let t=index"
+style="background-color:#f2f2f2">
+<tr *ngIf="getLength(result.Class)" [ngStyle]="{'background-color':'#248493','color':'#f2f2f2'}">
+  <td colspan="10" [innerHtml]="result.Class" class="grade-header"></td>
+</tr>
+
+<tr *ngFor="let i of result.ArrayTasks;let f=index" [ngStyle]="{'background-color':getColor(t)}">
+  <ng-container *ngIf="f==0">
+    <td [innerHtml]="result.Class" [attr.rowspan]="result.ArrayTasks.length"  ></td>
+    <td [innerHtml]="result.FirstName+' '+result.LastName" [attr.rowspan]="result.ArrayTasks.length"
+      (click)="view(result.StudentId)"></td>
+    <td [innerHtml]="result.Phone" [attr.rowspan]="result.ArrayTasks.length"></td>
+    <td [attr.rowspan]="result.ArrayTasks.length">
+      <p *ngFor="let Talent of result.ArrayTalent">
+        <span [innerHtml]="Talent.nameTalent+'  '+Talent.countAdvice"></span>
+      </p>
+    </td>
+  </ng-container>
+  <td [innerHtml]="i.nameActivity+'  '"></td>
+  <td [innerHtml]="i.nameTalent"></td>
+  <td [innerHtml]="i.taskType+'  '"></td>
+  <td [innerHtml]="i.frame"></td>
+  <td [innerHtml]="i.year"></td>
+  <td [innerHtml]="i.moreDetails">
+  </td>
+
+</tr>
+<tr *ngIf="result.ArrayTasks.length==0" [ngStyle]="{'background-color':getColor(t)}">
+  <td [innerHtml]="result.Class"></td>
+  <td [innerHtml]="result.FirstName+' '+result.LastName" (click)="view(result.StudentId)"></td>
+  <td [innerHtml]="result.Phone"></td>
+  <td>
+    <p *ngFor="let Talent of result.ArrayTalent">
+      <span [innerHtml]="Talent.nameTalent+'  '+Talent.countAdvice"></span>
+    </p>
+  </td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+
+</tr>
+
+</ng-container> 
+
+    </tbody>
+  </table> -->
+
+</div>
+
+
+
+
+
+
+<div id="mySidenav" class="sidenav">
+  <span class="print" (click)="print()"><img src="../../../../assets/pictures/Printer.png"></span>
+  <span class="about" id="b0" (click)="f('c0')">א</span>
+  <span class="blog" id="b1" (click)="f('c1')">ב</span>
+  <span class="projects" id="b2" (click)="f('c2')">ג</span>
+  <span class="contact" id="b3" (click)="f('c3')">ד</span>
+  <span class="All" (click)="f('All')">הכל</span>
+</div>
+
+
+<!-- <ng-container *ngFor="let result of resultSearch| filterArray : SearchDetails ;let t=index"
+style="background-color:#f2f2f2">
+<tr *ngIf="getLength(result.Class)" [ngStyle]="{'background-color':'#248493','color':'#f2f2f2'}">
+  <td colspan="10" [innerHtml]="result.Class" class="grade-header"></td>
+</tr>
+
+<tr *ngFor="let i of result.ArrayTasks;let f=index" [ngStyle]="{'background-color':getColor(t)}">
+  <ng-container *ngIf="f==0">
+    <td [innerHtml]="result.Class" [attr.rowspan]="result.ArrayTasks.length"  ></td>
+    <td [innerHtml]="result.FirstName+' '+result.LastName" [attr.rowspan]="result.ArrayTasks.length"
+      (click)="view(result.StudentId)"></td>
+    <td [innerHtml]="result.Phone" [attr.rowspan]="result.ArrayTasks.length"></td>
+    <td [attr.rowspan]="result.ArrayTasks.length">
+      <p *ngFor="let Talent of result.ArrayTalent">
+        <span [innerHtml]="Talent.nameTalent+'  '+Talent.countAdvice"></span>
+      </p>
+    </td>
+  </ng-container>
+  <td [innerHtml]="i.nameActivity+'  '"></td>
+  <td [innerHtml]="i.nameTalent"></td>
+  <td [innerHtml]="i.taskType+'  '"></td>
+  <td [innerHtml]="i.frame"></td>
+  <td [innerHtml]="i.year"></td>
+  <td [innerHtml]="i.moreDetails">
+  </td>
+
+</tr>
+<tr *ngIf="result.ArrayTasks.length==0" [ngStyle]="{'background-color':getColor(t)}">
+  <td [innerHtml]="result.Class"></td>
+  <td [innerHtml]="result.FirstName+' '+result.LastName" (click)="view(result.StudentId)"></td>
+  <td [innerHtml]="result.Phone"></td>
+  <td>
+    <p *ngFor="let Talent of result.ArrayTalent">
+      <span [innerHtml]="Talent.nameTalent+'  '+Talent.countAdvice"></span>
+    </p>
+  </td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+  <td [innerHtml]="''"></td>
+
+</tr>
+
+</ng-container> -->

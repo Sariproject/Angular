@@ -1,0 +1,43 @@
+
+<button  mat-stroked-button [innerText]="' הוספת כיתה חדשה '" (click)="addNewClass()"></button>
+<lib-ph-dialog 
+    [header]="header" 
+    [(visible)]="nav.showNewCustomerDialog" 
+    [width]="modalWidth" 
+    [height]="modalHeight"
+    (onShow)="onShow()"
+    (onHide)="onHide()" 
+    [resizable]="false">
+   <app-add-new-class (clickSave)="clickSave($event)"></app-add-new-class>
+</lib-ph-dialog>
+<div *ngIf="countStudentsLength!=0">
+
+    <table class="table">
+        <thead>
+            
+            <tr style="background-color:#248493;color:#ffffff">
+                <th>כיתה</th>
+                <th>שם משפחה</th>
+                <th>שם פרטי</th>
+                <th>ת.זהות</th>
+                <th>כתובת בית</th>
+                <th>טלפון</th>
+            </tr>
+            <tr *ngFor="let control of formStudentList.controls; index as i" [formGroup]="control" style="background-color:#f2f2f2">
+                    <th [innerText]="class"></th>
+                    <th><input matInput  formControlName="firstName" autocomplete="off"/></th>
+                    <th><input matInput  formControlName="lastName" autocomplete="off"/></th>
+                    <th><input matInput  formControlName="Id" autocomplete="off"/></th>
+                    <th><input matInput  formControlName="address" autocomplete="off"/></th>
+                    <th><input matInput  formControlName="phone" autocomplete="off"/></th>
+            </tr>
+           
+        </thead>
+    </table> 
+   <!-- //<button mat-button color="primary" value=" עדכן הכל" (click)="updata()">עדכן הכל</button> -->
+   <div class="btn-row">
+    <button  class="buttonUpdata" mat-button color="primary" (click)="save()">שמירה
+    </button>
+   </div>
+
+</div>

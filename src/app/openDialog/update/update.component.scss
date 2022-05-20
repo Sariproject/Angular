@@ -1,0 +1,47 @@
+:host{
+    & form{
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+            padding: 14px 70px;
+        
+        
+    }
+    & .btn-row{
+        display: flex;
+        justify-content: flex-end;
+       
+        & .buttonUpdata{
+            color: white!important;
+            width: 25%;
+            background-color: #616161;
+            border-radius: 0px;
+            // position: relative;
+            color: #FFFFFF;
+          
+            text-align: center;
+            -webkit-transition-duration: 0.4s; 
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+           
+        &:hover {
+           
+            box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+               
+         } 
+      
+    }}
+    .mat-input-element mat-form-field {
+        font-size: 230px;
+        
+    }
+    .mat-form-field{
+        text-align: right;
+        direction:unset;
+        margin: 26px 0;
+
+     } 
+     
+}

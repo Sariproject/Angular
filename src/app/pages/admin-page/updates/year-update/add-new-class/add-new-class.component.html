@@ -1,0 +1,28 @@
+<form [formGroup]="formNewClass">
+    <div>
+        <mat-form-field>
+            <mat-select placeholder="בחר כיתה" formControlName="nameClass">
+                <mat-option *ngFor="let class of classes" [innerHtml]="class" [value]="class"></mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-select placeholder="בחר מספר" formControlName="numClass">
+                <mat-option *ngFor="let num of numbers" [innerHtml]="num" [value]="num"></mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput type="number" placeholder="הזן מספר תלמידות" max="50" min="0"
+                formControlName="countStudents" />
+        </mat-form-field>
+    </div>
+    
+</form>
+<!-- <button mat-raised-button [innerText]="'שמירה'" (click)="save()"></button> -->
+<div class="btn-row">
+    <button [disabled]="formNewClass.invalid" class="buttonUpdata" mat-button color="primary" (click)="save()">שמירה
+    </button>
+</div>

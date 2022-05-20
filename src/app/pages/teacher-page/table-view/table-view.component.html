@@ -1,0 +1,39 @@
+<!--<p>
+  <span [innerHtml]="'המורה'"></span>
+  <span [innerHtml]="teacherDetails.teacherName"></span>
+  <span [innerHtml]="teacherDetails.Class"></span>
+</p>
+<p>
+  <span [innerHtml]="teacherDetails.Year"></span>
+</p>-->
+
+
+
+<table style="width:100%;text-align:center;color:#248493;direction:rtl;">
+  <thead>
+    <tr style="background-color:#248493;color:#ffffff">
+      <th>שם תלמידה</th>
+      <th>כיתה</th>
+      <th>פעילות</th>
+      <th>תחום</th>
+      <th>פרוט</th>
+      <th>מסגרת</th>
+      <th>סוג תפקיד</th>
+      <th>שנה</th>
+    </tr>
+    <tr *ngFor="let student of students;" style="background-color:#f2f2f2">
+      <th [innerHtml]="student.name"></th>
+      <th [innerHtml]="student.Class"></th>
+      <th [innerHtml]="student.nameActivity"></th>
+      <th [innerHtml]="student.nameTalent"></th>
+      <th [innerHtml]="student.moreDetails"></th>
+      <th [innerHtml]="student.frame"></th>
+      <th [innerHtml]="student.taskType"></th>
+      <th [innerHtml]="student.year"></th>
+    </tr>
+  </thead>
+</table>
+
+
+
+        

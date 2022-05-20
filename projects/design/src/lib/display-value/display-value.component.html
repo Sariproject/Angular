@@ -1,0 +1,38 @@
+<ng-container [ngSwitch]="columnValueTypes">
+
+      <span *ngSwitchCase="'date'" copyToClipboard [style.color]="color"
+            [innerText]="value ">
+      </span>
+
+      <span *ngSwitchCase="'date-time'" copyToClipboard [style.color]="color"
+            [innerText]="value ">
+      </span>
+
+      <span *ngSwitchCase="'number'" copyToClipboard [style.color]="color" [innerText]="value ">
+      </span>
+
+
+      <span *ngSwitchCase="'selection'" copyToClipboard [innerText]="value">
+      </span>
+      <span *ngSwitchCase="'count'" copyToClipboard [style.color]="color" [innerText]="value.length">
+      </span>
+
+      <span *ngSwitchCase="'timespan'" copyToClipboard [style.color]="color" [innerText]="value ">
+      </span>
+
+      <span *ngSwitchCase="'price'" class="price" copyToClipboard [style.color]="color" [innerText]="value ">
+      </span>
+
+      <span *ngSwitchDefault [class.percentage]="columnValueTypes === ColumnValueTypes.percentage" [style.color]="color"
+            [innerText]="(value || '' )">
+      </span>
+      <span *ngSwitchDefault [class.percentage]="columnValueTypes === ColumnValueTypes.percentage" [style.color]="color"
+            [innerText]="(value || '' )">
+      </span>
+      <span *ngSwitchDefault [class.percentage]="columnValueTypes === ColumnValueTypes.percentage" [style.color]="color"
+            [innerText]="(value || '' )">
+      </span>
+
+</ng-container>
+
+<ng-content select="[display-end]"></ng-content>

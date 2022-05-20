@@ -1,0 +1,87 @@
+<lib-ph-dialog [header]="header" [(visible)]="nav.showSuccessDialog" [width]="modalWidth" [height]="modalHeight"
+  (onShow)="onShow()" (onHide)="onHide()" [resizable]="false">
+  <app-successful (clickSave)="s()"></app-successful>
+
+</lib-ph-dialog>
+<lib-ph-dialog [header]="header" [(visible)]="nav.showbeforSaveDialog" [width]="modalWidth" [height]="modalHeight"
+  (onShow)="onShow()" (onHide)="onHide()" [resizable]="false">
+  <app-b-save [Save]="Save" [who]="'שמור'" (clickSave)="update($event)"></app-b-save>
+
+</lib-ph-dialog>
+
+
+
+<div id="main" style="padding:16px;">
+  <h3>תפקיד חדש</h3>
+  <div id="container">
+    <form [formGroup]="formTask" autocomplete="off">
+
+      <mat-form-field>
+        <input matInput list="Namestudent" (keyup)="changeText($event.target.value)" formControlName="name"
+          placeholder="שם תלמידה">
+      </mat-form-field>
+      <datalist id="Namestudent">
+        <option *ngFor="let student of students" [value]="student.name +' '+ student.Class">{{student.name}}
+          {{student.Class}}</option>
+      </datalist>
+
+
+      <mat-form-field>
+        <mat-select formControlName="misgeret" placeholder="קהל יעד">
+          <mat-option [value]="'כיתתית'">כיתתית</mat-option>
+          <mat-option [value]="'מחזורית'">מחזורית</mat-option>
+          <mat-option [value]="'סמינרית'">
+            סמינרית</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-select formControlName="size" placeholder="גודל">
+          <mat-option [value]="'גדול'" [innerHtml]="'גדול'"></mat-option>
+          <mat-option [value]="'בינוני'" [innerHtml]="'בינוני'"></mat-option>
+          <mat-option [value]="'קטן'" [innerHtml]="'קטן'"></mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="container">
+        <mat-form-field>
+          <mat-select formControlName="activity" placeholder="פעילות">
+            <mat-option *ngFor="let activit of Activity" [value]="activit.nameActivity"
+              [innerHtml]="activit.nameActivity">
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-button color="primary" (click)="openModal('הוספת פעילות')">אחר</button>
+      </div>
+      <div class="container">
+        <mat-form-field>
+          <mat-select formControlName="talent" placeholder="כשרון">
+            <mat-option *ngFor="let talent of talents" [value]="talent.nameTalent" [innerHtml]="talent.nameTalent">
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-button color="primary" (click)="openModal('הוספת כשרון')">אחר</button>
+      </div>
+
+      <mat-form-field>
+        <input matInput formControlName="more" placeholder="הערות" />
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="btn-row">
+    <button [disabled]="formTask.invalid" class="buttonUpdata" mat-button color="primary" (click)="onSave()">עדכן
+      <div class="overlay">
+
+        <div class="text" matTooltip="פרטים לא מולאו"
+        [matTooltipPosition]="'above'"></div>
+      </div>
+    </button>
+  </div>
+
+</div>
+
+<lib-ph-dialog [header]="header" [(visible)]="nav.showNewTalentandActivityDialog" [width]="modalWidth"
+  [height]="modalHeight" (onShow)="onShow()" (onHide)="onHide()" [resizable]="false">
+  <app-new-talent (clickSave)="SaveAddtion($event)"></app-new-talent>
+</lib-ph-dialog>

@@ -1,0 +1,47 @@
+
+<div *ngIf="who=='שמור'">
+  <div class="body">
+    <h1>⚠</h1>
+    <div *ngFor="let s of Save">
+      
+      <span  class="name" [innerHtml]="s.name+': '"></span>
+      <span [innerHtml]="s.value"></span>
+      <p></p>
+    </div>
+    <h3>האם ברצונך לשמור ?</h3>
+  </div>
+  <!-- <div class="modal-footer">
+     <button ngbAutofocus type="button" class="btn btn-warning"
+     (click)="onSave('Save')">שמור</button>
+    <button  type="button" class="btn btn-outline-secondary" (click)="onSave('noSave')" >אל תשמור</button>
+  </div> -->
+  <div class="btn-row">
+    <button  class="buttonUpdata" mat-button color="primary" (click)="onSave('Save')">שמור
+    </button>
+    <button  style="background-color:#8c8a8a;" class="buttonUpdata" mat-button color="primary" (click)="onSave('noSave')">אל תשמור
+    </button>
+  </div>
+ </div>
+<div *ngIf="who=='מחוק'">
+  <div class="body">
+    <h1>⚠</h1>
+    <div *ngFor="let s of Save">
+      
+      <span  class="name" [innerHtml]="s.name+': '"></span>
+      <span [innerHtml]="s.value"></span>
+      <p></p>
+    </div>
+    <h3>האם ברצונך למחוק ?</h3>
+  </div>
+  <!-- <div class="modal-footer">
+     <button ngbAutofocus type="button" class="btn btn-warning"
+     (click)="onSave('Save')">מחק</button>
+    <button  type="button" class="btn btn-outline-secondary" (click)="onSave('noSave')" >אל תמחוק</button>
+  </div> -->
+  <div class="btn-row">
+    <button  class="buttonUpdata" mat-button color="primary" (click)="onSave('Save')">מחק
+    </button>
+    <button  style="background-color:#8c8a8a;" class="buttonUpdata" mat-button color="primary" (click)="onSave('noSave')">אל תמחוק
+    </button>
+  </div>
+ </div>

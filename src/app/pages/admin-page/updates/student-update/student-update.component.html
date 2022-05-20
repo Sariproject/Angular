@@ -1,0 +1,81 @@
+<div id="mainSide" style="padding:-16px;">
+  <span>בחרי כיתה לעדכון:</span>
+  <div id="container">
+ <mat-form-field>
+  <mat-select placeholder="בחר כיתה">
+    <mat-option *ngFor="let class of classes" [value]="class" [innerHtml]="class"  (click)="cheackOfClass(class)">
+    </mat-option>
+  </mat-select>
+ </mat-form-field>
+
+<mat-form-field>
+  <mat-select placeholder="בחר מספר" >
+    <mat-option *ngFor="let num of numbers" [value]="num" [innerHtml]="num" (click)="cheackOfNum(num)">
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  </div>
+</div>
+
+<div id="mainStart" style="padding:16px;">
+  <h3>בחרי כיתה לעדכון:</h3>
+  <div id="container">
+    <mat-form-field>
+      <mat-select placeholder="בחר כיתה">
+        <mat-option *ngFor="let class of classes" [value]="class" [innerHtml]="class" (click)="cheackOfClass(class)">
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-select placeholder="בחר מספר" >
+        <mat-option *ngFor="let num of numbers" [value]="num"[innerHtml]="num" (click)="cheackOfNum(num)">
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
+</div>
+<div *ngIf="flag==true && students.length > 0">
+<div >
+  <table class="table">
+    <thead>
+        <tr style="background-color:#248493;color:#ffffff">
+        <th>כיתה</th>
+        <th >
+          <span (click)="showSort = true">שם תלמידה</span>
+          <mat-form-field *ngIf="showSort == true">
+            <input matInput placeholder="סנן" autocomplete="off" id="inputSort" (keyup)="myFunction()">
+          </mat-form-field>
+          
+        </th>
+        <th>
+          <span (click)="showSelect = true">בחרי כשרון</span>
+          <mat-form-field  *ngIf="flagselectedOption!=true && showSelect == true">
+            <mat-select placeholder="בחר כשרון" [(ngModel)]="selectedOption">
+              <mat-option *ngFor="let talent of talents;let index=i" [value]="talent.talentId" [innerHtml]="talent.nameTalent" (click)="onChangeTalent()">
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </th> 
+        <th>המלצה</th> 
+        <th>פרוט</th>
+      </tr>
+      <tr *ngFor="let student of students;let i = index" style="background-color:#f2f2f2">
+        <td [innerHtml]="student.Class" ></td>
+        <th [innerHtml]="student.name" ></th>
+        <th><input  type="checkbox" [(ngModel)]="student.hasTalent" [disabled]="selectedOption==undefined" (change)="onChange(student.name,student.hasTalent)"/></th>
+        <th><input  matInput type="number" [disabled]="selectedOption==undefined" [(ngModel)]="student.countAdvice" (change)="onChange(student.name,student.countAdvice)" min="0" /></th>
+        <th><input matInput  [disabled]="selectedOption==undefined" [(ngModel)]="student.moreDetails" (change)="onChange(student.name,student.moreDetails)"/></th>
+        <th  *ngIf="some(student.name)" class="save"><button mat-button color="primary" (click)="saveOne(i)">שמור</button></th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<button mat-button color="primary" (click)="saveAll()">שמור הכל</button>
+   
+</div>
+<div *ngIf="students.length == 0 && this.nameClass!='' && numClass !=0">
+  <h3 [innerHtml]="'עדיין לא בוצעו עדכונים השנה'"></h3>
+</div>  
+

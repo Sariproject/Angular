@@ -1,0 +1,17 @@
+<form [formGroup]="formAdd">
+    <mat-form-field>
+        <input matInput placeholder="להוספה" formControlName="add" (keyup)="t()"/>
+    </mat-form-field>
+    <div class="btn-row">
+        <div class="container" style="background-color:#f1f1f1">
+            <button [disabled]="formAdd.invalid" mat-raised-button [innerText]="'שמירה'" (click)="Save()" >
+            <div class="overlay" >
+
+                <div class="text" matTooltip="ערך לא תקין"
+                [matTooltipPosition]="'above'">ערך לא תקין</div>
+            </div>
+         </button>
+        </div>
+        
+    </div>
+</form>

@@ -1,0 +1,16 @@
+<div  *ngIf="teacherDetails!=undefined">
+<p>
+  <span [innerHtml]="':המורה'"></span>
+  <span [innerHtml]="teacherDetails.teacherName" ></span>
+  <span [innerHtml]="teacherDetails.Class"></span>
+</p>
+<p> <span [innerHtml]="teacherDetails.Year" ></span></p>
+</div>
+
+<p (click)="logout()">צא </p>
+<p class="btn-row">
+  <input type="button" class="btn" value="לרשימת התפקידים" (click)="view()">
+  <input type="button" class="btn" value="לעדכון פרטים" (click)="update()">
+</p>
+
+<router-outlet></router-outlet>

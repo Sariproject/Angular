@@ -1,0 +1,57 @@
+<div class="formSearch">
+<form [formGroup]="formSearch" autocomplete="off">
+
+  <mat-form-field>
+    <input matInput list="st" (keyup)="changeText($event.target.value)" formControlName="name" placeholder="שם תלמידה">
+  </mat-form-field>
+  <datalist id="st">
+    <option *ngFor="let student of students " [value]="student.name +' '+ student.Class">{{student.name}}
+      {{student.Class}}</option>
+  </datalist>
+
+  <mat-form-field>
+    <mat-select  [disabled]="formSearch.controls.name.value!=''&&formSearch.controls.name.value!=null"
+      formControlName="class" placeholder="כיתה">
+      <mat-option *ngFor="let nameClass of Classes" [value]="nameClass" [innerHtml]="nameClass" (change)="changeItem('class')">
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select    [disabled]="formSearch.controls.name.value!=''&&formSearch.controls.name.value!=null"
+      formControlName="num" placeholder="מספר כיתה">
+      <mat-option *ngFor="let num of Numbers" [value]="num" [innerHtml]="num" >
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select    formControlName="Activity" placeholder="פעילות">
+      <mat-option *ngFor="let activity of activities" [value]="activity.nameActivity"
+        [innerHtml]="activity.nameActivity">
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-select   formControlName="Talent" placeholder="כשרון">
+      <mat-option *ngFor="let talent of talents" [value]="talent.nameTalent" [innerHtml]="talent.nameTalent">
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select    [disabled]="formSearch.controls.Activity.value =='' || formSearch.controls.Activity.value == null"
+      formControlName="year" placeholder="שנה">
+      <mat-option *ngFor="let y of year" [value]="y.year" [innerHtml]="y.year">
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+</form>
+<div class="btn-row">
+
+  <button  class="buttonUpdata"   mat-button value="חפש" (click)="Save()">חפש</button>
+  
+</div>
+</div>

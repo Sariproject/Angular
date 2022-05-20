@@ -1,0 +1,59 @@
+input.btn {
+    border: solid 2px #248493;
+    outline: none;
+    padding: 30px 100px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin: 200px 40px;
+    font-size: 20px;
+    // width: 100px;
+    // height: 80px;
+}
+input.btn:hover{
+    background-color: #248493;
+    color:white
+}
+:host{
+    #update .s{
+        text-align: center;
+        position: fixed;
+        left: -82px;
+        transition: 0.3s;
+        padding: 15px;
+        width: 100px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        @media print {
+           
+            display: none;
+        }
+    }
+    
+    #update .s:hover {
+        left: 0;
+       
+    }
+   
+    .updateTalent {
+        top: 358px;
+        background-color: #dfdfdf;
+    }
+    
+    .updateExel {
+        top: 440px;
+        background-color: #b1b1b1;
+    }
+    
+    .updateSofter {
+        top: 545px;
+        background-color: #7e7e7e;
+    }
+    
+    .openYear {
+        top: 650px;
+        background-color: rgb(100, 100, 100)
+    }
+}

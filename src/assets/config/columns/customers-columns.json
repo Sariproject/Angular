@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Class",
+        "header": "כיתה",
+        "type": "string"
+    },
+    {
+        "name": "name",
+        "header": "שם תלמידה",
+        "type": "string"
+    },
+    {
+        "name": "hasTalent",
+        "header": "בחר כשרון",
+        "type": "select"
+    },
+    {
+        "name": "countAdvice",
+        "header": "המלצה",
+        "type": "string",
+        "sortable": true,
+        "filter": true
+    },
+    {
+        "name": "moreDetails",
+        "header": "פרוט",
+        "type": "string"
+    }
+   
+]

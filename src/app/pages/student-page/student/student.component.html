@@ -1,0 +1,97 @@
+
+<lib-ph-dialog 
+      [header]="header" 
+      [(visible)]="nav.showbeforSaveDialog" 
+      [width]="modalWidth"
+      [height]="modalHeight" 
+      (onShow)="onShow()" 
+      (onHide)="onHide()" 
+      [resizable]="false">
+    <app-b-save [who]="'מחוק'" [Save]="Save" (clickSave)="Delet($event)"></app-b-save>
+</lib-ph-dialog>
+<lib-ph-dialog 
+      [header]="header" 
+      [(visible)]="nav.showSuccessDialog" 
+      [width]="modalWidth"
+      [height]="modalHeight" 
+      (onShow)="onShow()" 
+      (onHide)="onHide()" 
+      [resizable]="false">
+    <app-successful (clickSave)="closeModelSuccess()"></app-successful>
+</lib-ph-dialog>
+<lib-ph-dialog 
+      [header]="header" 
+      [(visible)]="nav.showUpdataDialog" 
+      [width]="modalWidth"
+      [height]="modalHeight" 
+      (onShow)="onShow()" 
+      (onHide)="onHide()" 
+      [resizable]="false">
+    <app-update (clickSave)="closeModelUpdate()" #Update></app-update>
+</lib-ph-dialog>
+<div class="name" *ngIf="studentDetails!=undefined">
+<p class="name">
+  <span [innerText]="studentDetails.FirstName" class="span"></span>
+  <span [innerText]="studentDetails.LastName" class="span"></span>
+  <span [innerText]="studentDetails.Id" class="span"></span>
+</p>
+<p>
+  <span [innerText]="'כיתה:'" class="span"></span>
+  <span [innerText]="studentDetails.Class" class="span"></span>
+</p>
+</div> 
+<div class="talent">
+  <span [innerText]="'כשרונות:'" class="span"></span>
+  <span  *ngFor="let talent of talents">
+    <span [innerText]="talent.nameTalent"></span>
+    <span [innerText]="','"></span>
+  </span>
+
+</div>
+  
+
+<div class="tabGrid" *ngIf="tasksYear.length !=0">
+  <span  class="Tasks " [innerText]="' תפקידים שקיבלת: '" ></span>
+<div class="tab">
+  <button class="tablinks " *ngFor="let y of Years;let r=index" (click)="openYear(r, y.year)">{{y.year}}</button>
+</div>
+<div  *ngFor="let y of Years;let i=index"  id={{y.year}} class="tabcontent">
+  <h3 >{{y.year}} תפקידים שקיבלה בשנה זו: {{tasksYear[i].length}}</h3><h3 ></h3>
+  <table *ngIf="tasksYear[i].length > 0 " style="width:100%;text-align:center;color:#248493;direction:rtl;">
+    <thead>
+      <tr style="background-color:#248493;color:#ffffff">
+        <th>פעילות</th>
+        <th>תחום</th>
+        <th>מסגרת</th>
+        <th>סוג תפקיד</th>
+        <th>שנה</th>
+        <th>פרוט</th>
+        <td></td>
+      </tr>
+      <tr *ngFor="let task of tasksYear[i];" style="background-color:#f2f2f2">
+        <th [innerHtml]="task.nameActivity"></th>
+        <th [innerHtml]="task.nameTalent"></th>
+        <th [innerHtml]="task.frame"></th>
+        <th [innerHtml]="task.taskType"></th>
+        <th [innerHtml]="task.year"></th>
+        <th [innerHtml]="task.moreDetails"></th>
+        <td>
+          <span (click)="openDelet(task)"  matTooltip="מחק"
+          [matTooltipPosition]="'above'">
+            <img src="../../../../assets/pictures/G.png" >
+          </span>
+          <span (click)="openUpDate(task)" matTooltip="ערוך"
+          [matTooltipPosition]="'above'">
+          <img src="../../../../assets/pictures/P.png" >
+          </span>
+        </td>
+      </tr>
+    </thead>
+  </table>
+  <p *ngIf="tasksYear[i].length==0" [innerHtml]="' לא נמצאו תפקידים בשנה זו!!'"></p> 
+</div>
+</div>
+
+
+<button mat-button  value="חזור" (click)="Beack()">חזור</button>
+

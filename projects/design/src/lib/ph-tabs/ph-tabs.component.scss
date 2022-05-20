@@ -1,0 +1,286 @@
+
+
+@mixin panel-layout() {
+   
+    // z-index: 1;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ph-tabs-panel {
+    @include panel-layout();
+    margin-top: -0.5rem;
+}
+
+lib-ph-tabs {
+    
+    // padding: 3vw;
+   //background:#248493;
+    position: sticky;
+    top:10px;
+    left: 0px;
+    display: flex;
+    flex: 1 1 auto;
+    direction: rtl;
+   
+    //font:  14px  teal;
+    .empty-message {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        @include panel-layout();
+    }
+
+    .ui-tabview{
+        padding: 0 !important;
+        
+    }
+
+    &>section.top-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        z-index: 1;
+        align-items: center;
+    }
+
+    &>.tabsContainer,
+    &>.tabContent {
+        width: 100%;
+
+        
+
+        &>p-tabView>.ui-tabview.ui-tabview-top>ul.ui-tabview-nav {
+            &.ui-widget-header {
+                 position: sticky;
+                background:teal;
+                top:-0.5px;
+                width: 100%;
+                padding: 0;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+               
+            }
+
+            a,
+            li {
+                outline: none;
+                top:0px;
+                margin:0px;
+                 @media print {
+                    display: none;
+                }
+            }
+
+        }
+
+        &>p-tabView {
+            &>.ui-tabview>.ui-widget-header {
+                border: none;
+
+            }
+
+            &>.ui-tabview.ui-tabview-top {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                &>[p-tab-viewnav] {
+                    flex: 0 0 auto;
+
+                    &+ui-tableview-panels {
+                        flex: 1 1 auto;
+                        position: relative;
+
+                        &>p-tabpanel {
+                            &>ui-tabview-panel {
+                                position: absolute;
+                                top: 0;
+                                right: o;
+                                display: flex;
+                                flex-direction: column;
+                                ;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.mainTabs>.ui-tabview.ui-tabview-top {
+                @media print {
+                    display: none;
+                }
+                background: transparent;
+                position: sticky;
+                top: -0.5px;
+                width: 100%;
+                &>ul.ui-tabview-nav {
+                    flex: 0 0 auto;
+                    display: flex;
+                    align-items: flex-end;
+                    min-height: 40px;
+                    background: transparent;
+                    z-index: 0;
+                    padding:0;
+
+                    &>li {
+                        display: flex;
+                        align-items: center;
+                        height: 30px;
+                        margin-right: 12px;
+                        border-top-left-radius: 5px;
+                        border-top-right-radius: 5px;
+                        font-family:EFT_Authentica !important;
+                        font-size: 135px;
+                        color: #8d8d8d;
+                        transition: all 0.2s ease-out;
+
+                        &.ui-state-default {
+                            background: #ffffff;
+
+                            color: red;
+
+                        }
+
+                        &.ui-state-active {
+                            height: 40px;
+                            font-family:EFT_Authentica !important;
+                            color: #8d8d8d;
+                            box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+                        }
+
+                        &:not(.ui-state-active):not(.ui-state-disabled):hover {
+                            background: rgba(255, 255, 255, .6);
+                        }
+
+                        &:not(.ui-state-active):hover {
+                            // height: 40px;
+                            font-family:EFT_Authentica !important;
+                            color: #8d8d8d;
+                            box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+
+                        }
+                    }
+                }
+
+                &>ui-tabview-panels {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1 1 auto;
+                    overflow: hidden;
+                    @include panel-layout();
+
+                    &>p-tabpanel {
+                        &>.ui-tabview-panel {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            right: 0;
+                            left: 0;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+
+            &:not(.mainTabs)>.ui-tabview.ui-tabview-top {
+               // border-radius: 10px;
+                background: transparent;
+
+                &>ul.ui-tabview-nav {
+
+                    display: flex;
+                    justify-content: flex-start;
+                    // height: 45px;
+
+                    &>li {
+                        text-align: center;
+                        float: none;
+                       width: 10%;
+                        color: #8d8d8d;
+                        //הצבע של המרובעים
+                        &.ui-state-default {
+                            // background-color: #d5dcdd;
+
+                        }
+                         //לפסים מתחת לטאבים
+                        &>a {
+                            margin:0 !important;
+                            display: block;
+                            width: 100%;
+                            position: relative;
+                            cursor: pointer;
+                            background-color: transparent;
+                            color: #d5dcdd;
+                            font-size: larger;
+                            float: none;
+                            font-family:EFT_Authentica !important;
+                        
+                        &[aria-selected="true"]{
+                            background-color: #d5dcdd;
+                            
+                            }
+                            &:after {
+                                content: "";
+                                height: 3px;
+                                position: absolute;
+                                bottom: -2px;
+                                right: 50%;
+                                left: 50%;
+                                background-color: #d5dcdd;
+                                background: #248493;
+                                transition: all 0.2s ease-out;
+                            }
+
+                            &:hover {
+                                color: #248493 !important;
+                                background-color: #d5dcdd;
+                            }
+                        }
+    
+                        &.ui-state-active {
+                            a {
+                                color: #06525d;
+
+                                &:after {
+                                    right: 0;
+                                    left: 0;
+                                }
+                            }
+
+                            .ui-tabview-tiyle {
+                                color: #06525d;
+                            }
+                        }
+                      ///עד לפה-פסים
+                    }
+                }
+            }
+        }
+
+        &>p-tabView.ph-hide-panels>.ui-tabview.ui-tabview-top>.ui-tabview-panels {
+            display: none;
+
+            &>p-tabpanel {
+                display: none;
+            }
+        }
+    }
+
+
+    &.ph-scrollable {
+
+        &>.tabsContainer,
+        &>.tabContent {
+            &>p-tabView>.ui-tabview>.ui-tabview-panels {
+                &p-tabpanel>.ui-tabview-panel {
+                    overflow-y: tabcontent auto;
+                }
+            }
+        }
+    }
+   
+}

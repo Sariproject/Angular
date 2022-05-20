@@ -1,0 +1,25 @@
+<button mat-button  value="Write" (click)="UpdateClass()" >העלת כיתה</button>
+<div>
+
+  <span> ? איך תרצו לבצע עדכון השנה </span>
+  <br />
+  <div>
+    <button mat-button id="rd1" name="rd" value="Read" checked="checked" (click)="Start('Read')" ><label
+      for="rd1">EXCEL-קריאה מ</label></button>
+    <br />
+  </div>
+  <div>
+    <button mat-button id="rd2" name="rd" value="Write" (click)="Start('Write')" ><label for="rd2">רישום ישירות
+      לתוכנה</label></button>
+    <br />
+  </div>
+</div>
+
+
+<div *ngIf="flagviewSofter==true">
+  <app-writing-to-software></app-writing-to-software>
+</div>
+<div *ngIf="flagviewSofter==false">
+  <app-writing-to-software-talent></app-writing-to-software-talent>
+</div>
+

@@ -1,0 +1,22 @@
+:host{
+    >.main-Top{
+        display: flex ;
+        flex-direction: row;
+        >.logo{
+            font-family: Roboto,"Helvetica Neue",sans-serif;
+            text-decoration: none;
+            //line-height: 1;
+            display: flex;
+            justify-content: flex-end;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 37px;
+            letter-spacing: 1px;
+            color: #555555;
+            display: block;
+            position: relative;
+            margin-top: 10px;
+            margin-left: 14px;
+        }
+    }
+}

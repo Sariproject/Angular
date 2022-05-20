@@ -1,0 +1,30 @@
+:host{
+    text-align: center;
+
+p.btn-row {
+    display: flex;
+    justify-content: center;
+}
+input.btn {
+    border: solid 2px #248493;
+    outline: none;
+    padding: 30px 100px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin: 200px 40px;
+    font-size: 20px;
+    // width: 100px;
+    // height: 80px;
+}
+input.btn:hover{
+    background-color: #248493;
+    color:white
+}
+span{
+    text-align: center;
+    font-size: 40px;
+    color: #248493;
+    padding: 20px;
+   
+}
+}

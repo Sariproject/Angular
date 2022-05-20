@@ -1,0 +1,47 @@
+<!--<div>
+  <a [routerLink]="[' ']"></a>
+  <a [routerLink]="['/Admin/updates/year']">עדכון שנתי</a>
+  <a [routerLink]="['students']">עדכון תלמידה</a>
+</div>-->
+<!-- <input type="button" class="btn" value="עדכון שנתי" (click)="updateYear()">
+<input type="button" class="btn" value="עדכון כשרונות" (click)="updateTalents()">
+
+<router-outlet></router-outlet> -->
+
+<!-- <lib-ph-tabs id="nav" [tabs]="tabs"></lib-ph-tabs>
+--->
+
+<!-- <div id="side_nav">
+  <span>
+    <details>
+      <summary>עדכון שנתי</summary>
+      <ul>
+          <p (click)="view(1)" [innerHtml]="'  עדכון מ -EXCEL'"> </p>
+          <p (click)="view(2)">עדכון ידני</p>
+         
+      </ul>
+  </details>
+  </span>
+  <span [innerHtml]="'עדכון כשרונות'" (click)="view(0)" ></span>
+  
+</div> -->
+
+<div [ngSwitch]="flag" >
+  <span *ngSwitchCase="'0'">
+    <app-student-update ></app-student-update>
+  </span>
+  <span *ngSwitchCase="'1'">
+    <app-writing-to-software-talent ></app-writing-to-software-talent>
+  </span> 
+  <span *ngSwitchCase="'2'">
+    <app-writing-to-software></app-writing-to-software>
+  </span> 
+</div>   
+<div id="update" class="sidenav">
+  
+  <span class="s updateTalent"  (click)="view(0)">עדכון כשרונות</span>
+  <span class="s updateExel"  (click)="view(1)">עדכון שנתי מ - EXEL</span>
+  <span class="s updateSofter"  (click)="view(2)">עדכון שנתי מהתוכנה</span>
+  <span class="s openYear"  (click)="f('c2')">פתיחת שנה חדשה</span>
+  
+</div>

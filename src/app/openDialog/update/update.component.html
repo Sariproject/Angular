@@ -1,0 +1,47 @@
+ <form [formGroup]="formTaskUpdate" autocomplete="off">
+
+    <mat-form-field>
+      <mat-select formControlName="misgeret"  placeholder="קהל יעד">
+        <mat-option (click)="changeTasks()" [value]="'כיתתית'">כיתתית</mat-option>
+        <mat-option (click)="changeTasks()" selected [value]="'מחזורית'"> מחזורית</mat-option>
+        <mat-option (click)="changeTasks()" [value]="'סמינרית'">
+          סמינרית</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select formControlName="size" (click)="changeTasks()" placeholder="גודל">
+        <mat-option (click)="changeTasks()" [value]="'גדול'" [innerHtml]="'גדול'"></mat-option>
+        <mat-option (click)="changeTasks()" [value]="'בינוני'" [innerHtml]="'בינוני'"></mat-option>
+        <mat-option (click)="changeTasks()" [value]="'קטן'" [innerHtml]="'קטן'" ></mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
+    <mat-form-field>
+      <mat-select formControlName="activity" (click)="changeTasks()" placeholder="פעילות">
+        <mat-option  (click)="changeTasks()" *ngFor="let activit of Activity" [value]="activit.nameActivity"
+          [innerHtml]="activit.nameActivity">
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    
+    
+      <mat-form-field>
+        <mat-select  formControlName="talent"  placeholder="כשרון"  >
+          <mat-option *ngFor="let talent of talents" [value]="talent.nameTalent" [innerHtml]="talent.nameTalent" (click)="changeTasks()">
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    
+    
+  </form>
+  <div class="btn-row">
+    <button [disabled]="formTaskUpdate.invalid" class="buttonUpdata" mat-button color="primary" (click)="onSave()">{{button}}
+    </button>
+  </div>
+ 
+  

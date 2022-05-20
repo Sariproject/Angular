@@ -1,0 +1,43 @@
+
+<div id="login-main">
+        <form  [formGroup]="formGroup" id="login-form" >
+
+
+
+            <img src="./assets/pictures/Picture1.png"  >
+           
+
+            <p class="input-control">
+                <span class="input-icon">
+                    <img src="./assets/pictures/user-icon.png">
+                </span>               
+                <input type="text" class="no-border"  placeholder="user name" id="name" formControlName="name"/>
+            </p>
+            <span class="errorText"
+                *ngIf="flag == true && formGroup.controls.name.invalid"
+                [innerText]="'פרטים לא מולאו'"></span>
+           
+            <p></p>
+                        
+            <p class="input-control">
+                <span class="input-icon" for="password">
+                    <img src="./assets//pictures/password-icon.png">
+                </span>              
+                <input type="password" class="no-border"  placeholder="password" id="password" formControlName="password"/>
+            </p>
+            
+            <span class="errorText"
+                *ngIf="flag == true && formGroup.controls.password.invalid"
+                [innerText]="'פרטים לא מולאו'"></span>
+            <span class="errorText"
+                *ngIf="flag == true && formGroup.controls.password.valid"
+                [innerText]="'סיסמה שגויה'"></span>
+           
+
+            <p class="btn-row">
+                <input type="submit" class="btn" value="Login" (click)="login()">
+            </p>
+        </form>
+        
+    </div>
+    

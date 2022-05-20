@@ -1,0 +1,213 @@
+@media print{
+       
+    app-data{
+        display: none;
+    }
+    lib-ph-dialog,button{
+        display: none !important;
+    }
+    
+    
+}
+
+app-information{
+    text-align: center;
+    direction: rtl;
+    
+    button{
+       
+        @media print {
+            .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+                
+                //display: none !important;
+                 page-break-after: always;
+            
+            }
+        }
+    }
+    
+    #top{
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        //position: sticky;
+        //top:70px;
+        //border: 1px solid #ddd;
+        //width: 70%;
+        margin-bottom: 12px;
+        justify-content: center;
+
+        >.myInput {
+            align-items: center;
+            background-image: url('../../../../assets/pictures/searchicon.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 60%;
+            font-size: 18px;
+            padding: 13px 20px 13px 40px;
+            border: 1px solid #ddd;
+            //margin-bottom: 12px;
+            @media print {
+                display: none;
+            }
+          }
+          >button{
+            border: 1px solid #ddd;
+            color: white!important;
+            width: 7%;
+            background-color: #616161;
+            border-radius: 0px;
+            // position: relative;
+            color: #FFFFFF;
+          
+            text-align: center;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+            text-decoration: none;
+            overflow: hidden;
+            cursor: pointer;
+           
+        &:hover {
+           
+            box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+               
+         } }
+          
+          
+    }
+
+  
+}
+
+
+
+table{
+   
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #dddddd ;
+    border-collapse: collapse;
+    text-align: center;
+    overflow: hidden;
+    & td, th {
+    border-right:1px solid #dddddd ;
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+   
+    }
+    
+    @media print {
+        page-break-after: always;
+
+        tr{
+        //   & td.grade-header{
+                
+        //     //page-break-before: always
+        //     }
+        page-break-after: always;
+
+        }
+        
+        
+        & td{
+            border-right:1px solid #dddddd ;
+            text-align: center;
+            padding: 0px;
+            cursor: pointer;
+           
+        }
+            
+    }
+        margin: 1px;
+        background-color: white;
+        &:hover {color: rgb(15, 15, 15);}
+    th {
+            border:1px solid #dddddd ;
+           
+          }
+    
+}
+
+.mat-input-element mat-form-field {
+    text-align: center;
+}
+
+
+.mat-paginator-icon {
+    width: 28px;
+    fill: currentColor;
+    color: rgba(0,0,0,.54);
+}
+
+#mySidenav .print ,.about,.blog,.projects,.contact,.All{
+    position: fixed;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    @media print {
+       
+        display: none;
+    }
+}
+
+#mySidenav .print:hover , .about:hover,.blog:hover ,.projects:hover,.contact:hover,.All:hover{
+    left: 0;
+   
+}
+.print {
+    top: 310px;
+    background-color: #dddddd;
+}
+.about {
+    top: 470px;
+    background-color: #dddddd;
+}
+
+.blog {
+    top: 530px;
+    background-color: #9c9c9c;
+}
+
+.projects {
+    top: 590px;
+    background-color: #7c7b7b;
+}
+
+.contact {
+    top: 650px;
+    background-color: rgb(116, 116, 116)
+}
+.All {
+    top: 710px;
+    background-color: rgb(87, 86, 86)
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 10px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+
